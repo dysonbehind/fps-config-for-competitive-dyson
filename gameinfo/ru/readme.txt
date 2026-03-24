@@ -1,0 +1,37 @@
+Всем привет хочу разложить по полкам все популярные вопросы как включить и тд(список будет пополняться)
+
+\\ СВЕТ
+r_drawskybox "1" // Включает рендер неба (skybox)
+r_draw3dskybox "1" // Включает рендер 3D-неба (более детальная версия)
+
+\\ ВИДИМОСТЬ ЧАРА В МАГАЗИНЕ
+lb_enable_lights "1"
+lb_enable_sunlight "1"
+lb_enable_baked_shadows "1"
+lb_enable_dynamic_lights "1"
+r_directlighting "1"
+
+\\ ОБВОДКА
+citadel_boss_glow_disabled "0" // Включает свечение у боссов.
+citadel_trooper_glow_disabled "0" // Включает свечение у обычных врагов ("troopers").
+citadel_trooper_friendly_glow_disabled "0" // Включает свечение у дружественных "troopers".
+citadel_enemy_glow_enabled "0" // Включает свечение у врагов.
+citadel_player_glow_disabled "0" // Включает свечение у игрока.
+
+\\ ДРУГОЕ
+citadel_damage_report_enable "0" // Включает отчет о нанесенном уроне.
+"citadel_unit_status_use_new" "true" // Чтобы вернуть старую полоску HP, поменяйте последнее слово true на false
+r_farz "тут по своему" // Устанавливает дальность прорисовки карты 
+r_aspectratio "2.25" // 1.75 = 80 fov | 2.15 = 90fov
+citadel_camera_hero_fov 90
+zoom_sensitivity_ratio "0.8" // Чувствительность мыши при зуме (подстройте под себя)
+
+\\ ИНТЕРФЕЙС 
+panorama_disable_box_shadow "0" // Включает тени у элементов интерфейса (Panorama UI).
+panorama_disable_blur "0" // Включает размытие в интерфейсе (Panorama UI).
+panorama_disable_parallax "0" // Включает эффект параллакса в интерфейсе (Panorama UI).
+panorama_disable_text_shadow "0" // Включает тени у текста в интерфейсе (Panorama UI).
+panorama_disable_animations "0" // Включает анимации в интерфейсе (Panorama UI).
+
+\\ ПАРТИКЛЫ
+cl_particle_max_count "1500" // Команда определяет максимальное количество частиц, которые могут быть одновременно отрисованы на экране
