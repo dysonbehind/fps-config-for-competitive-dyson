@@ -1,19 +1,15 @@
-Hello everyone, I want to put on the shelves all the popular questions on how to turn on, etc. (the list will be updated)
-⚠️ Note about map rendering issues
+Hello everyone, I want to answer all the popular questions about how to enable and so on (the list will be updated).
 
-If you encounter a strange-looking map, visual glitches, or incorrect lighting (for example: broken shadows, flickering objects, or overly dark/bright areas), it is recommended to:
-
-👉 Disable shadows in the in-game settings
-
-This issue may occur due to aggressive graphics optimizations or conflicts with custom config values related to lighting and shadow rendering.
-
-Disabling shadows helps stabilize rendering and prevents most visual bugs on certain maps.
+⚠️ Attention: Map display issues 
+ 
+If you encounter an unusual map, visual glitches, or incorrect lighting (such as broken shadows, flickering objects, or overly dark/bright areas), it is recommended to: 
+ 
+👉 Disable shadows from high to minimum in the game settings.                                 
 
 
-
-\\ LIGHT
-r_drawskybox "1" // Enables sky rendering (skybox)
-r_draw3dskybox "1" // Enables 3D sky rendering (more detailed version)
+\\ NOW YOU NEED TO REGISTER THE LIGHT IN THE CONSOLE
+r_drawskybox "false" // Enables sky rendering (skybox)
+r_draw3dskybox "false" // Enables 3D sky rendering (more detailed version)
 
 \\ CHARM VISIBILITY IN THE STORE
 lb_enable_lights "1"
@@ -21,8 +17,9 @@ lb_enable_sunlight "1"
 lb_enable_baked_shadows "1"
 lb_enable_dynamic_lights "1"
 r_directlighting "1"
+citadel_portrait_world_renderer_off "0" // instead of 1 to 0 
 
-\\ OUTLINE
+\\ OUTLINE is not relevant but I will leave it for the future
 citadel_boss_glow_disabled "0" // Enables glow for bosses.
 citadel_trooper_glow_disabled "0" // Enables glow on regular enemies ("troopers").
 citadel_trooper_friendly_glow_disabled "0" // Enables glow on friendly "troopers".
