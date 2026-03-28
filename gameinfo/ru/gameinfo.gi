@@ -1,458 +1,458 @@
 "GameInfo"
 {
-	game 		"citadel"
-	title 		"Citadel"
-	type		multiplayer_only
-	nomodels 1
-	nohimodel 1
-	nocrosshair 0
-	hidden_maps
-	{
-		"test_speakers"			1
-		"test_hardware"			1
-	}
-	nodegraph 0
-	perfwizard 0
-	tonemapping 0 
-	GameData	"citadel.fgd"
-	
-	Localize
-	{
-		DuplicateTokensAssert	1
-		DisallowTokenContexts	1
-	}
+    game        "citadel"
+    title       "Citadel"
+    type        multiplayer_only
+    nomodels 1
+    nohimodel 1
+    nocrosshair 0
+    hidden_maps
+    {
+        "test_speakers"         1
+        "test_hardware"         1
+    }
+    nodegraph 0
+    perfwizard 0
+    tonemapping 0 
+    GameData    "citadel.fgd"
+    
+    Localize
+    {
+        DuplicateTokensAssert   1
+        DisallowTokenContexts   1
+    }
 
-	SupportedLanguages
-	{
-		"brazilian" "3"
-		"czech" "3"
-		"english" "3"
-		"french" "3"
-		"german" "3"
-		"italian" "3"
-		"indonesian" "3"
-		"japanese" "3"
-		"koreana" "3"
-		"latam" "3"
-		"polish" "3"
-		"russian" "3"
-		"schinese" "3"
-		"spanish" "3"
-		"thai" "3"
-		"turkish" "3"
-		"ukrainian" "3"
-	}
-	
-	FileSystem
-	{	
-        // Deadlock Mod Manager - Start
-	SearchPaths
+    SupportedLanguages
+    {
+        "brazilian" "3"
+        "czech" "3"
+        "english" "3"
+        "french" "3"
+        "german" "3"
+        "italian" "3"
+        "indonesian" "3"
+        "japanese" "3"
+        "koreana" "3"
+        "latam" "3"
+        "polish" "3"
+        "russian" "3"
+        "schinese" "3"
+        "spanish" "3"
+        "thai" "3"
+        "turkish" "3"
+        "ukrainian" "3"
+    }
+    
+    FileSystem
+    {    
+// Deadlock Mod Manager - Start
+        SearchPaths
         {  
             Game_Language       citadel_*LANGUAGE*
-            Game_LowViolence	citadel_lv
             Game                citadel/addons
-            Game                citadel
-            Game                core 
             Mod                 citadel
-            Mod                 core
             Write               citadel          
-            Write               core          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
         }
-        // Deadlock Mod Manager - End
-	}
-	MaterialSystem2
-	{
-		RenderModes
-		{
-			game Default
-			game Forward
-			game Deferred
-			game Outline
-			game Depth
-			game FrontDepth
+// Deadlock Mod Manager - End
+    }
+    
+    MaterialSystem2
+    {
+        RenderModes
+        {
+            game Default
+            game Forward
+            game Deferred
+            game Outline
+            game Depth
+            game FrontDepth
 
-			dev ToolsVis // Visualization modes for all shaders (lighting only, normal maps only, etc.)
-			dev ToolsWireframe // This should use the ToolsVis mode above instead of being its own mode\
+            dev ToolsVis // Visualization modes for all shaders (lighting only, normal maps only, etc.)
+            dev ToolsWireframe // This should use the ToolsVis mode above instead of being its own mode\
 
-			tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
-		}
-	}
+            tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
+        }
+    }
 
-	MaterialEditor
-	{
-		"DefaultShader" "environment_texture_set"
-	}
+    MaterialEditor
+    {
+        "DefaultShader" "environment_texture_set"
+    }
 
-	NetworkSystem
-	{
-		BetaUniverse
-		{
-			FakeLag			40
-			FakeLoss		.1
-			//FakeReorderPct 0.05
-			//FakeReorderDelay 10
-			//FakeJitter "low"
-			// Turning off fake jitter for now while I work on making the CQ totally solid
-			FakeReorderPct 0
-			FakeReorderDelay 0
-			FakeJitter "off"
-		}
+    NetworkSystem
+    {
+        BetaUniverse
+        {
+            FakeLag         40
+            FakeLoss        .1
+            //FakeReorderPct 0.05
+            //FakeReorderDelay 10
+            //FakeJitter "low"
+            // Turning off fake jitter for now while I work on making the CQ totally solid
+            FakeReorderPct 0
+            FakeReorderDelay 0
+            FakeJitter "off"
+        }
 
-		"SkipRedundantChangeCallbacks"	"1"
-	}
+        "SkipRedundantChangeCallbacks"  "1"
+    }
 
-	RenderSystem
-	{
-		IndexBufferPoolSizeMB 32
-		UseReverseDepth 1
-		Use32BitDepthBuffer 0
-		Use32BitDepthBufferWithoutStencil 0
-		SwapChainSampleableDepth 1
-		VulkanMutableSwapchain 1
-		"LowLatency"								"1"
-		"VulkanOnly"								"1"	[ $LINUX || $OSX ] // No OpenGL or D3D9/11 fallback on Linux or OSX, only Vulkan is supported.
-		"VulkanRequireSubgroupWaveOpSupport"		"1"	[ !$OSX ]
-		"VulkanRequireDescriptorIndexing"			"1"	[ !$OSX ]
-		"VulkanSteamShaderCache" "1"
-		"VulkanSteamAppShaderCache" "1"
-		"VulkanSteamDownloadedShaderCache" "1"
-		"VulkanAdditionalShaderCache" "vulkan_shader_cache.foz"
-		"VulkanStagingPMBSizeLimitMB" "384"
-		"GraphicsPipelineLibrary"	"1"
-		"VulkanOnlyTestProbability" "0"
-		"VulkanDefrag"				"1"
-		"MinStreamingPoolSizeMB"	"1024"
-		"MinStreamingPoolSizeMBTools" "2048"
-	}
+    RenderSystem
+    {
+        IndexBufferPoolSizeMB 32
+        UseReverseDepth 1
+        Use32BitDepthBuffer 0
+        Use32BitDepthBufferWithoutStencil 0
+        SwapChainSampleableDepth 1
+        VulkanMutableSwapchain 1
+        "LowLatency"                                "1"
+        "VulkanOnly"                                "1" [ $LINUX || $OSX ] // No OpenGL or D3D9/11 fallback on Linux or OSX, only Vulkan is supported.
+        "VulkanRequireSubgroupWaveOpSupport"        "1" [ !$OSX ]
+        "VulkanRequireDescriptorIndexing"           "1" [ !$OSX ]
+        "VulkanSteamShaderCache" "1"
+        "VulkanSteamAppShaderCache" "1"
+        "VulkanSteamDownloadedShaderCache" "1"
+        "VulkanAdditionalShaderCache" "vulkan_shader_cache.foz"
+        "VulkanStagingPMBSizeLimitMB" "384"
+        "GraphicsPipelineLibrary"   "1"
+        "VulkanOnlyTestProbability" "0"
+        "VulkanDefrag"              "1"
+        "MinStreamingPoolSizeMB"    "1024"
+        "MinStreamingPoolSizeMBTools" "2048"
+    }
 
-	NVNGX
-	{
-		AppID 103371621
-		SupportsDLSS 1
-	}
+    NVNGX
+    {
+        AppID 103371621
+        SupportsDLSS 1
+    }
 
-	Engine2
-	{
-		HasModAppSystems 1
-		Capable64Bit 1
-		URLName citadel
-		RenderingPipeline
-		{
-			SupportsMSAA 0
-			DistanceField 1
-		}
-		PauseSinglePlayerOnGameOverlay 1
-		DefensiveConCommands 1
-		DisableLoadingPlaque 1
-	}
+    Engine2
+    {
+        HasModAppSystems 1
+        Capable64Bit 1
+        URLName citadel
+        RenderingPipeline
+        {
+            SupportsMSAA 0
+            DistanceField 1
+        }
+        PauseSinglePlayerOnGameOverlay 1
+        DefensiveConCommands 1
+        DisableLoadingPlaque 1
+    }
 
-	ContentBuilder
-	{
-		ResourceCompilerDirectXUsesWARP "0"
-	}
+    ContentBuilder
+    {
+        ResourceCompilerDirectXUsesWARP "0"
+    }
 
-	SoundSystem
-	{
-		SteamAudioEnabled            "1"
-		WaveDataCacheSizeMB          "256"
-		"UsePlatTime"            "1"
-	}
-	Sounds
-	{
-		HierarchicalEncodingFiles	 "1"
-	}
+    SoundSystem
+    {
+        SteamAudioEnabled            "1"
+        WaveDataCacheSizeMB          "256"
+        "UsePlatTime"            "1"
+    }
+    Sounds
+    {
+        HierarchicalEncodingFiles    "1"
+    }
 
-	ToolsEnvironment
-	{
-		"Engine"	"Source 2"
-		"ToolsDir"	"../sdktools"	// NOTE: Default Tools path. This is relative to the mod path.
-	}
-	
-	pulse
-	{
-		"pulse_enabled"					"1"
-	}
+    ToolsEnvironment
+    {
+        "Engine"    "Source 2"
+        "ToolsDir"  "../sdktools"   // NOTE: Default Tools path. This is relative to the mod path.
+    }
+    
+    pulse
+    {
+        "pulse_enabled"                 "1"
+    }
 
-	Hammer
-	{
-		"fgd"					"citadel.fgd"	// NOTE: This is relative to the 'game' path.
-		"GameFeatureSet"		"Citadel"
-		"DefaultSolidEntity"	"trigger_multiple"
-		"DefaultPointEntity"	"info_player_start"
-		"NavMarkupEntity"		"func_nav_markup"
-		"OverlayBoxSize"			"8"
-		"TileMeshesEnabled"			"1"
-		"RenderMode"				"ToolsVis"
-		"CreateRenderClusters"		"1"
-		"DefaultMinDrawVolumeSize"	"2048"
-		"DefaultMinTrianglesPerCluster"	"16384"
-		"TileGridSupportsBlendHeight"	"1"
-		"TileGridBlendDefaultColor"	"0 255 0"
-		"LoadScriptEntities" "0"
-		"UsesBakedLighting" "1"
-		"UseAnalyticGrid" "0"
-		"SupportsDisplacementMapping" "0"
-		"SteamAudioEnabled"				"1"
-		"LatticeDeformerEnabled"		"1"
-		"ShadowAtlasWidth" "16384"
-		"ShadowAtlasHeight" "16384"
-		"TimeSlicedShadowMapRendering" "1"
-	}
+    Hammer
+    {
+        "fgd"                   "citadel.fgd"   // NOTE: This is relative to the 'game' path.
+        "GameFeatureSet"        "Citadel"
+        "DefaultSolidEntity"    "trigger_multiple"
+        "DefaultPointEntity"    "info_player_start"
+        "NavMarkupEntity"       "func_nav_markup"
+        "OverlayBoxSize"            "8"
+        "TileMeshesEnabled"         "1"
+        "RenderMode"                "ToolsVis"
+        "CreateRenderClusters"      "1"
+        "DefaultMinDrawVolumeSize"  "2048"
+        "DefaultMinTrianglesPerCluster" "16384"
+        "TileGridSupportsBlendHeight"   "1"
+        "TileGridBlendDefaultColor" "0 255 0"
+        "LoadScriptEntities" "0"
+        "UsesBakedLighting" "1"
+        "UseAnalyticGrid" "0"
+        "SupportsDisplacementMapping" "0"
+        "SteamAudioEnabled"             "1"
+        "LatticeDeformerEnabled"        "1"
+        "ShadowAtlasWidth" "16384"
+        "ShadowAtlasHeight" "16384"
+        "TimeSlicedShadowMapRendering" "1"
+    }
 
-	SoundTool
-	{
-		"DefaultSoundEventType" "src1_3d"
+    SoundTool
+    {
+        "DefaultSoundEventType" "src1_3d"
 
-		SoundEventBaseOptions
-		{
-			"Base.Announcer.VO.2d" ""
-			"Base.World.VO.Emitter.3d" ""
-			"Base.Hero.VO.Ping.2d" ""
-			"Base.Hero.VO.2d" ""
-			"Base.Hero.VO.3d" ""
-			"Base.Hero.VO.Ability.3d" ""
-			"Base.Hero.VO.Ultimate.3d" ""
-			"Base.Hero.VO.Dash.3d" ""
-			"Base.Hero.VO.Effort.3d" ""
-			"Base.Hero.VO.Pain.3d" ""
-			"Base.Hero.VO.Melee.3d" ""
-			"Base.Hero.VO.Death.3d" ""
-		}
-	}
+        SoundEventBaseOptions
+        {
+            "Base.Announcer.VO.2d" ""
+            "Base.World.VO.Emitter.3d" ""
+            "Base.Hero.VO.Ping.2d" ""
+            "Base.Hero.VO.2d" ""
+            "Base.Hero.VO.3d" ""
+            "Base.Hero.VO.Ability.3d" ""
+            "Base.Hero.VO.Ultimate.3d" ""
+            "Base.Hero.VO.Dash.3d" ""
+            "Base.Hero.VO.Effort.3d" ""
+            "Base.Hero.VO.Pain.3d" ""
+            "Base.Hero.VO.Melee.3d" ""
+            "Base.Hero.VO.Death.3d" ""
+        }
+    }
 
-	RenderPipelineAliases
-	{
-	}
+    RenderPipelineAliases
+    {
+    }
 
-	ResourceCompiler
-	{
-		// Overrides of the default builders as specified in code, this controls which map builder steps
-		// will be run when resource compiler is run for a map without specifiying any specific map builder
-		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
-		DefaultMapBuilders
-		{
-			"bakedlighting"	"1"	// Enable lightmapping during compile time		
-			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
-			"nav"		"1"	// Generate nav mesh data
-		}
+    ResourceCompiler
+    {
+        // Overrides of the default builders as specified in code, this controls which map builder steps
+        // will be run when resource compiler is run for a map without specifiying any specific map builder
+        // steps. Additionally this controls which builders are displayed in the hammer build dialog.
+        DefaultMapBuilders
+        {
+            "bakedlighting" "1" // Enable lightmapping during compile time      
+            "envmap"    "0" // turned off since it currently causes an assert and doesn't work due to some build issue
+            "nav"       "1" // Generate nav mesh data
+        }
 
-		MeshCompiler
-		{
-			OptimizeForMeshlets 1
-			TrianglesPerMeshlet 64	// Maximum valid value currently is 126
-			UseMikkTSpace 1
-			EncodeVertexBuffer 1
+        MeshCompiler
+        {
+            OptimizeForMeshlets 1
+            TrianglesPerMeshlet 64  // Maximum valid value currently is 126
+            UseMikkTSpace 1
+            EncodeVertexBuffer 1
             EncodeVertexBufferVersion 1
             EncodeVertexBufferLevel 3
-			EncodeIndexBuffer 1
-			SplitDepthStream 1
-		}
+            EncodeIndexBuffer 1
+            SplitDepthStream 1
+        }
 
-		WorldRendererBuilder
-		{
-			VisibilityGuidedMeshClustering      "1"
-			MinimumTrianglesPerClusteredMesh    "8192"
-			MinimumVerticesPerClusteredMesh     "8192"
-			MinimumVolumePerClusteredMesh       "8192"       // ~20x20x20 cube
-			MaxPrecomputedVisClusterMembership  "96"
-			MaxCullingBoundsGroups              "128"
-			UseAggregateInstances				"1"
-			AggregateInstancingMeshlets			"1"
-			BakePropsWithExtraVertexStreams		"1"
-		}
+        WorldRendererBuilder
+        {
+            VisibilityGuidedMeshClustering      "1"
+            MinimumTrianglesPerClusteredMesh    "8192"
+            MinimumVerticesPerClusteredMesh     "8192"
+            MinimumVolumePerClusteredMesh       "8192"       // ~20x20x20 cube
+            MaxPrecomputedVisClusterMembership  "96"
+            MaxCullingBoundsGroups              "128"
+            UseAggregateInstances               "1"
+            AggregateInstancingMeshlets         "1"
+            BakePropsWithExtraVertexStreams     "1"
+        }
 
-		BakedLighting
-		{
-			Version 4
-			ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
-			LightmapChannels
-			{
-				direct_light_shadows 1
-				debug_chart_color 1
-				directional_irradiance_sh2_dc 1
-				
-				directional_irradiance_sh2_r
-				{
-					CompressedFormat DXT1
-				}
-				
-				directional_irradiance_sh2_g
-				{
-					CompressedFormat DXT1
-				}
-				
-				directional_irradiance_sh2_b
-				{
-					CompressedFormat DXT1
-				}
-			}
-			LightmapGutterSize 2 // For bicubic filtering
-			UseStaticLightProbes 0
-			LPVAtlas 1
-			BC6HHueShiftFixup 0 // Causes more artifacts than it solves atm
-			Repack2 1
-		}
+        BakedLighting
+        {
+            Version 4
+            ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+            LightmapChannels
+            {
+                direct_light_shadows 1
+                debug_chart_color 1
+                directional_irradiance_sh2_dc 1
+                
+                directional_irradiance_sh2_r
+                {
+                    CompressedFormat DXT1
+                }
+                
+                directional_irradiance_sh2_g
+                {
+                    CompressedFormat DXT1
+                }
+                
+                directional_irradiance_sh2_b
+                {
+                    CompressedFormat DXT1
+                }
+            }
+            LightmapGutterSize 2 // For bicubic filtering
+            UseStaticLightProbes 0
+            LPVAtlas 1
+            BC6HHueShiftFixup 0 // Causes more artifacts than it solves atm
+            Repack2 1
+        }
 
-		SteamAudio
-		{
-			ReverbDefaults
-			{
-				GridSpacing			"3.0"
-				HeightAboveFloor	"1.5"
-				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
-				NumRays				"32768"
-				NumBounces			"64"
-				IRDuration			"1.0"
-				AmbisonicsOrder		"1"
-			}
-			PathingDefaults
-			{
-				GridSpacing			"3.0"
-				HeightAboveFloor	"1.5"
-				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
-				NumVisSamples		"1"
-				ProbeVisRadius		"0"
-				ProbeVisThreshold	"0.1"
-				ProbeVisPathRange	"1000.0"
-			}
-		}
-		SoundStackScripts
-		{
-			CompileStacksStrict "1"
-		}
-		VisBuilder
-		{
-			MaxVisClusters "4096"
-			PreMergeOpenSpaceDistanceThreshold "128.0"
-			PreMergeOpenSpaceMaxDimension "2048.0"
-			PreMergeOpenSpaceMaxRatio "8.0"
-			PreMergeSmallRegionsSizeThreshold "20.0"
-		}
+        SteamAudio
+        {
+            ReverbDefaults
+            {
+                GridSpacing         "3.0"
+                HeightAboveFloor    "1.5"
+                RebakeOption        "0"                     // 0: cleanup, 1: manual, 2: auto
+                NumRays             "32768"
+                NumBounces          "64"
+                IRDuration          "1.0"
+                AmbisonicsOrder     "1"
+            }
+            PathingDefaults
+            {
+                GridSpacing         "3.0"
+                HeightAboveFloor    "1.5"
+                RebakeOption        "0"                     // 0: cleanup, 1: manual, 2: auto
+                NumVisSamples       "1"
+                ProbeVisRadius      "0"
+                ProbeVisThreshold   "0.1"
+                ProbeVisPathRange   "1000.0"
+            }
+        }
+        SoundStackScripts
+        {
+            CompileStacksStrict "1"
+        }
+        VisBuilder
+        {
+            MaxVisClusters "4096"
+            PreMergeOpenSpaceDistanceThreshold "128.0"
+            PreMergeOpenSpaceMaxDimension "2048.0"
+            PreMergeOpenSpaceMaxRatio "8.0"
+            PreMergeSmallRegionsSizeThreshold "20.0"
+        }
 
-		VDataLocalization
-		{
-			GameOutputPath	"resource/localization/citadel_vdata"
-			TokenPrefix		"Citadel_VData_"
-		}
-		
-		TextureCompiler
-		{
-			//Compressor              "lz4"
-			//CompressMipsOnDisk      "1"
-			//CompressMinRatio        "95"
-			AllowNP2Textures		"1"
-			AllowPanoramaMipGeneration	"1"
-			//PublicToolsDefaultMaxRes "2048"
-		}
-	}
+        VDataLocalization
+        {
+            GameOutputPath  "resource/localization/citadel_vdata"
+            TokenPrefix     "Citadel_VData_"
+        }
+        
+        TextureCompiler
+        {
+            //Compressor              "lz4"
+            //CompressMipsOnDisk      "1"
+            //CompressMinRatio        "95"
+            AllowNP2Textures        "1"
+            AllowPanoramaMipGeneration  "1"
+            //PublicToolsDefaultMaxRes "2048"
+        }
+    }
 
-	Source1Import
-	{
-		// this is just copied from the left4dead3 gameinfo.gi
-		"forcevtxfileupconvert" 1
-	}
+    Source1Import
+    {
+        // this is just copied from the left4dead3 gameinfo.gi
+        "forcevtxfileupconvert" 1
+    }
 
-	WorldRenderer
-	{
-		EnvironmentMaps					1
-		EnvironmentMapFaceSize			256
-		EnvironmentMapRenderSize		1024
-		EnvironmentMapFormat			BC6H
-		EnvironmentMapPreviewFormat 		BC6H
-		EnvironmentMapColorSpace		linear
-		EnvironmentMapMipProcessor		GGXCubeMapBlur
-		// Build cubemaps into a cube array instead of individual cubemaps.
-		"EnvironmentMapUseCubeArray" 	1
-		"EnvironmentMapCacheSizeTools"  300
-		BindlessSceneObjectDesc			CitadelBindlessDesc
-		GrassCastsShadows				1
-	}
+    WorldRenderer
+    {
+        EnvironmentMaps                 1
+        EnvironmentMapFaceSize          256
+        EnvironmentMapRenderSize        1024
+        EnvironmentMapFormat            BC6H
+        EnvironmentMapPreviewFormat         BC6H
+        EnvironmentMapColorSpace        linear
+        EnvironmentMapMipProcessor      GGXCubeMapBlur
+        // Build cubemaps into a cube array instead of individual cubemaps.
+        "EnvironmentMapUseCubeArray"    1
+        "EnvironmentMapCacheSizeTools"  300
+        BindlessSceneObjectDesc         CitadelBindlessDesc
+        GrassCastsShadows               1
+    }
 
-	SceneSystem
-	{
-		GpuLightBinner 1
-		FogCachedShadowAtlasWidth 2048
-		FogCachedShadowAtlasHeight 2048
-		FogCachedShadowTileSize 128
-		GpuLightBinnerSunLightFastPath 1
-		CSMCascadeResolution 2048
-		SunLightManagerCount 0
-		SunLightManagerCountTools 0
-		DefaultShadowTextureWidth 6144
-		DefaultShadowTextureHeight 6144
-		DynamicShadowResolution 1
+    SceneSystem
+    {
+        GpuLightBinner 1
+        FogCachedShadowAtlasWidth 0
+        FogCachedShadowAtlasHeight 0
+        FogCachedShadowTileSize 0
+        GpuLightBinnerSunLightFastPath 1
+        CSMCascadeResolution 0
+        SunLightManagerCount 0
+        SunLightManagerCountTools 0
+        DefaultShadowTextureWidth 0
+        DefaultShadowTextureHeight 0
+        DynamicShadowResolution 0
 
-		TransformTextureRowCount	1024
-		TransformTextureRowCountToolsMode 6144
-		SunLightMaxCascadeSize		4
-		SunLightShadowRenderMode	Depth
-		LayerBatchThresholdFullsort 20
-		NonTexturedGradientFog		1
-		// Temp till I can add support in citadel shaders
-		DisableLateAllocatedTransformBuffer 1
-		MinimumLateAllocatedVertexCacheBufferSizeMB 64
-		CubemapFog 1
-		VolumetricFog 1
-		FrameBufferCopyFormat R11G11B10F
-		Tonemapping 0
-		
-		WellKnownLightCookies
-		{
-			"blank" "materials/effects/lightcookies/blank.vtex"
-			"flashlight" "materials/effects/lightcookies/flashlight.vtex"
-		}
+        TransformTextureRowCount    1024
+        TransformTextureRowCountToolsMode 6144
+        SunLightMaxCascadeSize        4
+        SunLightShadowRenderMode    Depth
+        LayerBatchThresholdFullsort 20
+        NonTexturedGradientFog        0
+        // Temp till I can add support in citadel shaders
+        DisableLateAllocatedTransformBuffer 1
+        MinimumLateAllocatedVertexCacheBufferSizeMB 64
+        CubemapFog 0
+        VolumetricFog 0
+        FrameBufferCopyFormat R11G11B10F
+        Tonemapping 0
+        WellKnownLightCookies
+        {
+            "blank" "materials/effects/lightcookies/blank.vtex"
+            "flashlight" "materials/effects/lightcookies/flashlight.vtex"
+        }
 
-		ComputeShaderSkinning 1
-	}
+        ComputeShaderSkinning 1
+    }
 
-	NavSystem
-	{
-		"NavTileSize" "128.0"
-		"NavCellSize" "1.5"
-		"NavCellHeight" "2.0"
+    NavSystem
+    {
+        "NavTileSize" "128.0"
+        "NavCellSize" "1.5"
+        "NavCellHeight" "2.0"
 
-		// Hull definitions live in scripts/nav_hulls.vdata
-		// Preset definitions live in scripts/nav_hulls_presets.vdata
-		"NavHullsPreset" "default"
+        // Hull definitions live in scripts/nav_hulls.vdata
+        // Preset definitions live in scripts/nav_hulls_presets.vdata
+        "NavHullsPreset" "default"
 
-		"NavRegionMinSize" "8"
-		"NavRegionMergeSize" "20"
-		"NavEdgeMaxLen" "1200"
-		"NavEdgeMaxError" "51.0"
-		"NavVertsPerPoly" "4"
-		"NavDetailSampleDistance" "120.0"
-		"NavDetailSampleMaxError" "2.0"
-		"NavSmallAreaOnEdgeRemovalSize" "81.0"
-	}
+        "NavRegionMinSize" "8"
+        "NavRegionMergeSize" "20"
+        "NavEdgeMaxLen" "1200"
+        "NavEdgeMaxError" "51.0"
+        "NavVertsPerPoly" "4"
+        "NavDetailSampleDistance" "120.0"
+        "NavDetailSampleMaxError" "2.0"
+        "NavSmallAreaOnEdgeRemovalSize" "81.0"
+    }
 
-	AnimationSystem
-	{
-		"DisableServerInterpCompensation"	"1"
-		"DisableAnimationScript" 	"1"
-		"ServerPoseRecipeHistorySize"	"60"
-		"ClientPoseRecipeHistorySize"	"60"
+    AnimationSystem
+    {
+        "DisableServerInterpCompensation"   "1"
+        "DisableAnimationScript"    "1"
+        "ServerPoseRecipeHistorySize"   "60"
+        "ClientPoseRecipeHistorySize"   "60"
 
-	}
+    }
 
-	ModelDoc
-	{
-		"models_gamedata"			"models_gamedata.fgd"
-		"features"					"animgraph;modelconfig;gamepreview;wireframe_backfaces;distancefield"
-	}
+    ModelDoc
+    {
+        "models_gamedata"           "models_gamedata.fgd"
+        "features"                  "animgraph;modelconfig;gamepreview;wireframe_backfaces;distancefield"
+    }
 
-	Particles
-	{
-		"EnableParticleShaderFeatureBranching"	"1"
-		"Float16HDRBackBuffer" "1"
-		"PET_SupportFadingOpaqueModels" "1"
-		"Features" "non_homogenous_forward_layer_only"
-	}
+    Particles
+    {
+        "EnableParticleShaderFeatureBranching"  "1"
+        "Float16HDRBackBuffer" "1"
+        "PET_SupportFadingOpaqueModels" "1"
+        "Features" "non_homogenous_forward_layer_only"
+    }
+
 
 	ConVars
 	{	 
 
 // ============== GAMEINFO CONFIG — DYSON EDITION ==============
-// =================== Updated: 24.03.2026 =====================
+// =================== Updated: 28.03.2026 =====================
 
 // ==================== СИСТЕМА И МНОГОПОТОЧНОСТЬ ====================
 host_thread_mode "1"
@@ -475,10 +475,13 @@ mat_async_shader_load "1"
 cl_parallel_readpacketentities "1"
 phys_multithreading_enabled "1"
 animgraph2_enable_parallel_update "1"
-animgraph_parallel_postdataupdate "1" // [НОВОЕ] Параллельное обновление post-data-update анимационной графики
-animgraph_enable_dirty_netvar_optimization "1" // [НОВОЕ] Пропускает неизменённые netvar'ы — меньше нагрузки на CPU
-parallel_perform_invalidate_physics "1" // [НОВОЕ] Параллельная инвалидация физики
-parallel_update_surrounding_bounds_in_spatial_partition_update "1" // [НОВОЕ] Параллельное обновление границ
+animgraph_parallel_postdataupdate "1"                                   // [НОВОЕ] Параллельное обновление post-data-update анимационной графики
+animgraph_enable_dirty_netvar_optimization "1"                          // [НОВОЕ] Пропускает неизменённые netvar'ы — меньше нагрузки на CPU
+parallel_perform_invalidate_physics "1"                                 // [НОВОЕ] Параллельная инвалидация физики
+parallel_update_surrounding_bounds_in_spatial_partition_update "1"      // [НОВОЕ] Параллельное обновление границ
+engine_low_latency_sleep_after_client_tick "true"                       // [НОВОЕ] Спит стратегически после тика клиента — снижает латентность и статтеры
+cl_modifier_parallel_gather_status_effect_updates "true"                // [НОВОЕ] Параллельный сбор обновлений статус-эффектов модификаторов
+cl_batch_entity_list_ops_during_latch "true"                            // [НОВОЕ] Пакетирует операции списка сущностей во время latch-фазы
 
 // ==================== СЕТЬ ====================
 cl_updaterate "128"
@@ -506,9 +509,9 @@ net_async_clientconnect "1"
 gpu_level "0"
 cpu_level "0"
 mat_set_shader_quality "0"
-r_aspectratio "2.25" // 1.75 = 80 fov | 2.15 = 90fov
+r_aspectratio "2.25"           // 1.75 = 80 fov | 2.15 = 90fov
 citadel_camera_hero_fov 90
-zoom_sensitivity_ratio "0.8" // Чувствительность мыши при зуме (подстройте под себя)
+zoom_sensitivity_ratio "0.8"   // Чувствительность мыши при зуме (подстройте под себя)
 r_fastzreject "-1"
 r_norefresh "1"
 r_dynamic "0"
@@ -535,6 +538,7 @@ lb_csm_draw_translucent "0"
 lb_barnlight_shadowmap_scale "0.5"
 lb_csm_cascade_size_override "1"
 lb_dynamic_shadow_resolution_quantization "64"
+lb_csm_override_staticgeo_cascades "0"                                  // [НОВОЕ] Отключает реалистичные статичные каскады теней, использует запечённые вместо динамических
 lb_csm_override_staticgeo_cascades_value "0"
 lb_csm_receiver_plane_depth_bias "0.00002"
 lb_csm_receiver_plane_depth_bias_transmissive_backface "0.0002"
@@ -542,6 +546,7 @@ lb_sun_csm_size_cull_threshold_texels "30"
 lb_dynamic_shadow_resolution_base "256"
 sparseshadowtree_enable_rendering "1"
 sparseshadowtree_disable_for_viewmodel "1"
+sparseshadowtree_parallel_generation "true"                             // [НОВОЕ] Параллельная генерация Sparse Shadow Tree
 lb_enable_lights "0"
 lb_enable_sunlight "0"
 lb_enable_baked_shadows "0"
@@ -560,10 +565,11 @@ r_maxdlights "0"
 mat_disable_lightwarp "1"
 r_citadel_npr_outlines "0"
 sc_disable_shadow_fastpath "0"
+lb_ssss_samples "1"                                                     // [НОВОЕ] Количество сэмплов подповерхностного рассеивания (subsurface scattering) — снижает нагрузку
 
 // ==================== ЧАСТИЦЫ ====================
-r_drawparticles "1" // ДОЛЖНЫ БЫТЬ ВКЛЮЧЕНЫ, иначе способности невидимы
-r_farz "8500" // Устанавливает дистанцию прорисовки карты
+r_drawparticles "1"            // ДОЛЖНЫ БЫТЬ ВКЛЮЧЕНЫ, иначе способности невидимы
+r_farz "8500"                  // Устанавливает дистанцию прорисовки карты
 r_citadel_selection_outline2_alpha "255"
 citadel_player_outline_fade_range_max "10000"
 cl_particle_max_count "1500"
@@ -590,22 +596,27 @@ cl_max_particle_pvs_aabb_edge_length "50"
 r_particle_cables_render "0"
 r_particle_max_draw_distance "55000"
 r_particle_enable_fastpath "1"
-r_particle_gpu_implicit "1" // [НОВОЕ] GPU-имплицитные частицы — быстрее CPU-симуляции
-r_meshlet_culling "1" // [НОВОЕ] ↓ количество draw calls
-r_hzb_occlusion "1" // [НОВОЕ] ↓ овердро
-r_batch_draw_calls "1" // [НОВОЕ] ↓ overhead CPU → GPU
-r_visibility_framelag "1" // [НОВОЕ] стабильность кадров
+r_particle_gpu_implicit "1"                                             // [НОВОЕ] GPU-имплицитные частицы — быстрее CPU-симуляции
+r_meshlet_culling "1"                                                   // [НОВОЕ] ↓ количество draw calls
+r_hzb_occlusion "1"                                                     // [НОВОЕ] ↓ овердро
+r_batch_draw_calls "1"                                                  // [НОВОЕ] ↓ overhead CPU → GPU
+r_visibility_framelag "1"                                               // [НОВОЕ] стабильность кадров
+cl_particle_sim_fallback_threshold_ms "0.001"                           // [НОВОЕ] Порог времени симуляции (мс), после которого частицы переключаются на упрощённые версии
+r_particle_max_texture_layers "3"                                       // [НОВОЕ] Максимальное количество слоёв текстур у частиц
+r_particle_model_per_thread_count "6000"                                // [НОВОЕ] Количество частиц-моделей на поток — оптимизирует многопоточную симуляцию
+r_late_particle_job_sync "true"                                         // [НОВОЕ] Поздняя синхронизация задач частиц — снижает простой GPU
+r_particle_model_new "false"                                            // [НОВОЕ] Отключает новый путь рендера моделей-частиц (стабильнее старый)
 
 // ==================== МОДЕЛИ, LOD И КУЛЛИНГ ====================
-r_rootlod "1"                                  
-r_lod "1"                                      
-r_size_cull_threshold "0"                      
-r_size_cull_threshold_fade "0"                 // [НОВОЕ] Отключает fade при culling — пропускает доп. проход
-r_entity_cull_distance_multiplier "5.0"        
+r_rootlod "1"
+r_lod "1"
+r_size_cull_threshold "0"
+r_size_cull_threshold_fade "0"                                          // [НОВОЕ] Отключает fade при culling — пропускает доп. проход
+r_entity_cull_distance_multiplier "5.0"
 r_cullforperformance "1"
 r_gpu_cull "1"
 r_gpu_cull_models "1"
-r_gpu_cull_models_range "4000"                 
+r_gpu_cull_models_range "4000"
 r_propsmaxdist "1000"
 r_model_lighting_simplified "1"
 cl_fasttempentcollision "100000"
@@ -632,8 +643,8 @@ sc_instanced_mesh_enable "1"
 sc_instanced_mesh_gpu_culling "1"
 sc_aggregate_gpu_culling "1"
 r_allow_onesweep_gpusort "1"
-update_all_keyframed_in_spatial_partition_update "1" // [НОВОЕ] Обновление ключевых кадров в пространственном разделе
-always_perform_full_spatial_partition_update "0" // [НОВОЕ] Явно отключить полную обходимость (по умолчанию=false)
+update_all_keyframed_in_spatial_partition_update "1"                    // [НОВОЕ] Обновление ключевых кадров в пространственном разделе
+always_perform_full_spatial_partition_update "0"                        // [НОВОЕ] Явно отключить полную обходимость (по умолчанию=false)
 
 // ==================== ТЕКСТУРЫ, ПОТОКОВАЯ ЗАГРУЗКА И ШЕЙДЕРЫ ====================
 r_texture_streaming "1"
@@ -646,7 +657,7 @@ sc_instanced_mesh_lod_bias "100"
 sc_instanced_mesh_lod_bias_shadow "100"
 sc_instanced_mesh_size_cull_bias "100"
 sc_fade_distance_scale_override "25"
-r_render_view_scale "0.05" // 5% разрешения
+r_render_view_scale "0.05"     // 5% разрешения
 r_texture_filter_textures "0"
 r_texturefilteringquality "0"
 mat_mip_linear "0"
@@ -657,10 +668,10 @@ animated_material_attributes "0"
 r_texture_eager_eviction "0"
 r_mipgen_compute_shader "1"
 r_cache_pool_allocations "1"
-r_texture_nonstreaming_load "1" // [НОВОЕ] Немедленная загрузка mip без стриминга — меньше фризов
-r_texture_hookup_uses_threadpool "1" // [НОВОЕ] Подключение текстур через пул потоков
-r_vulkan_sw_cmd_lists "1" // [НОВОЕ] Программные списки команд Vulkan — стабильный тайминг кадров
-r_dx11_software_cmd_lists "1" // [НОВОЕ] Программные списки команд DX11
+r_texture_nonstreaming_load "1"                                         // [НОВОЕ] Немедленная загрузка mip без стриминга — меньше фризов
+r_texture_hookup_uses_threadpool "1"                                    // [НОВОЕ] Подключение текстур через пул потоков
+r_vulkan_sw_cmd_lists "1"                                               // [НОВОЕ] Программные списки команд Vulkan — стабильный тайминг кадров
+r_dx11_software_cmd_lists "1"                                           // [НОВОЕ] Программные списки команд DX11
 
 // ==================== ФИЗИКА, ПРОПЫ И ДЕКАЛИ ====================
 cl_phys_timescale "1"
@@ -684,17 +695,18 @@ phys_show_stats "0"
 phys_visualize_traces "0"
 
 // ==================== АТМОСФЕРА И ВОДА ====================
-r_drawskybox "0" // Отключает рендер неба (skybox)
-r_draw3dskybox "0" // Отключает рендер 3D-неба (более детальная версия)
-r_monitor_3dskybox "0" // Разработческая команда, скорее всего для отладки 3D-неба
-r_fog_enable "0" // Отключает туман
-r_enable_volume_fog "0" // Отключает объёмный туман
-r_enable_gradient_fog "0" // Отключает градиентный туман
-r_enable_cubemap_fog "0" // Отключает туман на основе кубмапов
-r_citadel_fog_quality "0" // Качество тумана Citadel на минимум
-r_drawwater "0" // Отключает рендер воды
-r_grass_quality "0" // Отключает рендер травы
-r_debug_precipitation "0" // Отключает отладочный показ осадков (дождь, снег)
+r_drawskybox "false"           // Отключает отрисовку скайбокса (теперь прописывать в консоли)
+r_draw3dskybox "false"         // Отключает отрисовку 3D-скайбокса, который является более детализированной версией скайбокса.
+r_monitor_3dskybox "false"     // Это команда для разработчиков, скорее всего, для отладки 3D-скайбоксов.
+r_fog_enable "0"               // Отключает туман
+r_enable_volume_fog "0"        // Отключает объёмный туман
+r_enable_gradient_fog "0"      // Отключает градиентный туман
+r_enable_cubemap_fog "0"       // Отключает туман на основе кубмапов
+r_citadel_fog_quality "0"      // Качество тумана Citadel на минимум
+r_drawwater "0"                // Отключает рендер воды
+r_grass_quality "0"            // Отключает рендер травы
+r_debug_precipitation "0"      // Отключает отладочный показ осадков (дождь, снег)
+volume_fog_intermediate_textures_hdr "0"                                // [НОВОЕ] Отключает HDR-текстуры промежуточного объёмного тумана
 
 // ==================== ПОСТОБРАБОТКА И ПРОЧЕЕ ====================
 mat_postprocess_enable "0"
@@ -718,49 +730,52 @@ r_distancefield_enable "0"
 r_citadel_depthoffield_enable "0"
 
 // ==================== ГЕЙМПЛЕЙ, ИНТЕРФЕЙС И ЭФФЕКТЫ ====================
-r_drawtracers "1" // Включает отображение трассеров пуль
-r_drawtracers_firstperson "1" // Включает трассеры пуль от первого лица
-cl_show_bloodspray "0" // Отключает отображение брызг крови
-cl_show_splashes "0" // Отключает отображение всплесков (например, от воды)
-cl_ejectbrass "0" // Отключает выброс гильз
-cl_playerspraydisable "1" // Отключает отображение спреев игроков (граффити)
-citadel_damage_indicator "0" // Отключает индикатор урона
-citadel_damage_overlay "0" // Отключает оверлей урона
-citadel_damage_screen_effects "0" // Отключает экранные эффекты при получении урона
-citadel_post_damage_vignette "0" // Отключает виньетку (затемнение краёв) после получения урона
-citadel_show_new_damage_feedback_numbers "0" // Отключает отображение чисел нанесённого урона
-citadel_hud_objective_health_enabled "2" // Режим отображения здоровья целей
-citadel_boss_glow_disabled "0" // Отключает свечение боссов
-citadel_hideout_ball_show_juggle_count "0" // Показывает счётчик жонглирования в укрытии
-citadel_hideout_ball_show_juggle_fx "0" // Включает визуальные эффекты при жонглировании мячом в укрытии
-"citadel_unit_status_use_new" "true" // Чтобы вернуть старые полоски HP, поменяйте последнее слово true на false
-citadel_use_vertical_healthbars "0" // Отключает использование вертикальных полосок здоровья
-citadel_trooper_glow_disabled "0" // Отключает свечение обычных врагов («троуперов»)
-citadel_trooper_friendly_glow_disabled "0" // Отключает свечение дружественных «троуперов»
-r_citadel_outlines "1" // Включает контуры, специфичные для «Citadel»
-citadel_enemy_glow_enabled "0" // Отключает свечение врагов
-citadel_player_glow_disabled "0" // Отключает свечение игроков
-citadel_damage_report_enable "1" // Отключает отчёт об уроне
-citadel_damage_text_show_effectiveness "0" // Отключает отображение эффективности урона в тексте
-citadel_death_replay_enabled "0" // Отключает повтор после смерти
-spec_replay_enable "0" // Отключает повторы в режиме наблюдателя
-citadel_camera_wobble_disable "1" // Отключает тряску камеры
-citadel_camera_soft_collision "0" // Отключает «мягкие» столкновения камеры с объектами
-mp_fadetoblack "1" // Включает затемнение экрана (например, при смерти в мультиплеере)
-panorama_disable_box_shadow "1" // Отключает тени на элементах интерфейса (Panorama UI)
-panorama_disable_blur "1" // Отключает размытие в интерфейсе (Panorama UI)
-panorama_disable_parallax "1" // Отключает параллакс-эффект в интерфейсе (Panorama UI)
-panorama_disable_text_shadow "1" // Отключает тени текста в интерфейсе (Panorama UI)
-panorama_disable_animations "1" // Отключает анимации в интерфейсе (Panorama UI)
-r_dashboard_render_quality "0" // Качество рендера дашборда (главное меню) на минимум
-panorama_max_fps "60" // Ограничивает максимальный FPS в интерфейсе до 60
-panorama_classes_perf_warning_threshold_ms "0.75" // Порог предупреждений о производительности классов Panorama UI
-panorama_disable_render_target_cache "0" // Включает кэш целевых рендеров для Panorama UI
-panorama_js_minidumps "1" // Включает создание минидампов для JavaScript в Panorama UI (для отладки)
-panorama_joystick_enabled "0" // Отключает поддержку джойстика в интерфейсе
-panorama_skip_composition_layer_content_paint "1" // Пропускает рендер содержимого композиционного слоя (оптимизация)
-r_drawviewmodel "0" // Отключает рендер модели оружия в руках
-bullet_tracer_path_debug "0" // Отключает отладку пути трассеров пуль
+r_drawtracers "1"                                                       // Включает отображение трассеров пуль
+r_drawtracers_firstperson "1"                                           // Включает трассеры пуль от первого лица
+cl_show_bloodspray "0"                                                  // Отключает отображение брызг крови
+cl_show_splashes "0"                                                    // Отключает отображение всплесков (например, от воды)
+cl_ejectbrass "0"                                                       // Отключает выброс гильз
+cl_playerspraydisable "1"                                               // Отключает отображение спреев игроков (граффити)
+citadel_damage_indicator "0"                                            // Отключает индикатор урона
+citadel_damage_overlay "0"                                              // Отключает оверлей урона
+citadel_damage_screen_effects "0"                                       // Отключает экранные эффекты при получении урона
+citadel_post_damage_vignette "0"                                        // Отключает виньетку (затемнение краёв) после получения урона
+citadel_show_new_damage_feedback_numbers "0"                            // Отключает отображение чисел нанесённого урона
+citadel_hud_objective_health_enabled "2"                                // Режим отображения здоровья целей
+citadel_boss_glow_disabled "1"                                          // Отключает свечение боссов
+citadel_hideout_ball_show_juggle_count "0"                              // Показывает счётчик жонглирования в укрытии
+citadel_hideout_ball_show_juggle_fx "0"                                 // Включает визуальные эффекты при жонглировании мячом в укрытии
+"citadel_unit_status_use_new" "true"                                    // Чтобы вернуть старые полоски HP, поменяйте последнее слово true на false
+citadel_use_vertical_healthbars "0"                                     // Отключает использование вертикальных полосок здоровья
+citadel_trooper_glow_disabled "1"                                       // Отключает свечение обычных врагов («троуперов»)
+citadel_trooper_friendly_glow_disabled "1"                              // Отключает свечение дружественных «троуперов»
+r_citadel_outlines "1"                                                  // Включает контуры, специфичные для «Citadel»
+citadel_enemy_glow_enabled "0"                                          // Отключает свечение врагов
+citadel_player_glow_disabled "0"                                        // Отключает свечение игроков
+citadel_damage_report_enable "1"                                        // Включает отчёт об уроне
+citadel_damage_text_show_effectiveness "0"                              // Отключает отображение эффективности урона в тексте
+citadel_death_replay_enabled "0"                                        // Отключает повтор после смерти
+spec_replay_enable "0"                                                  // Отключает повторы в режиме наблюдателя
+citadel_camera_wobble_disable "1"                                       // Отключает тряску камеры
+citadel_camera_soft_collision "0"                                       // Отключает «мягкие» столкновения камеры с объектами
+citadel_camera_soft_collision_angle "360"                               // [НОВОЕ] Угол мягкого столкновения камеры — 360 убирает ограничение
+mp_fadetoblack "1"                                                      // Включает затемнение экрана (например, при смерти в мультиплеере)
+panorama_disable_box_shadow "1"                                         // Отключает тени на элементах интерфейса (Panorama UI)
+panorama_disable_blur "1"                                               // Отключает размытие в интерфейсе (Panorama UI)
+panorama_disable_parallax "1"                                           // Отключает параллакс-эффект в интерфейсе (Panorama UI)
+panorama_disable_text_shadow "1"                                        // Отключает тени текста в интерфейсе (Panorama UI)
+panorama_disable_animations "1"                                         // Отключает анимации в интерфейсе (Panorama UI)
+r_dashboard_render_quality "0"                                          // Качество рендера дашборда (главное меню) на минимум
+panorama_max_fps "60"                                                   // Ограничивает максимальный FPS в интерфейсе до 60
+panorama_classes_perf_warning_threshold_ms "0.75"                       // Порог предупреждений о производительности классов Panorama UI
+panorama_disable_render_target_cache "0"                                // Включает кэш целевых рендеров для Panorama UI
+panorama_js_minidumps "1"                                               // Включает создание минидампов для JavaScript в Panorama UI (для отладки)
+panorama_joystick_enabled "0"                                           // Отключает поддержку джойстика в интерфейсе
+panorama_skip_composition_layer_content_paint "1"                       // Пропускает рендер содержимого композиционного слоя (оптимизация)
+r_drawviewmodel "0"                                                     // Отключает рендер модели оружия в руках
+bullet_tracer_path_debug "0"                                            // Отключает отладку пути трассеров пуль
+citadel_arrow_brightness "1"                                            // [НОВОЕ] Яркость стрелки-указателя (навигационный маркер)
+citadel_damage_text_batching_window_ability "1000"                      // [НОВОЕ] Окно группировки текста урона от способностей (мс) — снижает спам цифр
 
 // ==================== ИИ И АНИМАЦИЯ ====================
 ai_disabled "0"
@@ -788,6 +803,10 @@ learning_rate "0.1"
 modifier_aura_debug "0"
 think_limit "10"
 zipline_use_new_latch "0"
+citadel_npc_force_animate_every_tick "false"                            // [НОВОЕ] Отключает принудительную анимацию NPC каждый тик — снижает нагрузку на CPU
+ai_async_queue_max_jobs "1"                                             // [НОВОЕ] Максимальное количество асинхронных задач ИИ в очереди
+ai_use_async_ragdoll_fixup "true"                                       // [НОВОЕ] Асинхронное исправление позиций рэгдолов — меньше нагрузки на основной поток
+nav_obstruction_async_update "true"                                     // [НОВОЕ] Асинхронное обновление препятствий навигационной сетки
 
 // ==================== ЗВУК ====================
 audio_relevance_debug_enabled "0"
@@ -821,7 +840,8 @@ soundscape_update_include_bots "0"
 snd_steamaudio_enable_reverb "0"
 snd_steamaudio_num_threads "4"
 snd_occlusion_rays "0"
-run_voicecontainer_async "1" // [НОВОЕ] Асинхронная обработка голосовых контейнеров
+run_voicecontainer_async "1"                                            // [НОВОЕ] Асинхронная обработка голосовых контейнеров
+snd_soundmixer_version "1"                                              // [НОВОЕ] Версия звукового миксера (1 = более лёгкая версия)
 
 // ==================== МИНИКАРТА ====================
 citadel_minimap_draw_fow "0"
@@ -960,6 +980,11 @@ volume "0.01"
 dsp_volume "0"
 snd_occlusion_bounces "0"
 soundsystem_update_async "1"
+cl_phys_assume_fixed_tick_interval "false"                              // [НОВОЕ] Не предполагает фиксированный тикрейт клиента — точнее при нестабильном FPS
+engine_allow_multiple_simulates_per_frame "false"                       // [НОВОЕ] Отключает симуляцию нескольких тиков за кадр (предотвращает перегрузку при низком FPS)
+cq_enable "true"                                                        // [НОВОЕ] Включает кастомную систему очередей (custom queuing) — стабильность сети
+sc_force_materials_batchable "true"                                     // [НОВОЕ] Принудительно делает материалы пакетируемыми — снижает количество draw calls
+save_parallel "true"                                                    // [НОВОЕ] Параллельное сохранение данных
 
 // ==================== НОВЫЕ КОМАНДЫ ИЗ ПОСЛЕДНЕГО ПАТЧА ====================
 r_AirboatViewDampenDamp "1"
@@ -1060,7 +1085,7 @@ r_physics_particle_op_spawn_scale "0"
 sc_screen_size_lod_scale_override "0.01"
 cl_simulate_dormant_entities "1"
 lb_enable_stationary_lights "1"
-r_citadel_gpu_culling "1" // Включает основную систему GPU-куллинга геометрии
+r_citadel_gpu_culling "1"                                               // Включает основную систему GPU-куллинга геометрии
 sc_allow_dynamic_constant_batching "1"
 iv_parallel_latch "1"
 iv_wrapped_parallel_latch "1"
@@ -1124,14 +1149,11 @@ pred_cloth_pos_strength "0"
 pred_cloth_rot_high "0"
 pred_cloth_rot_low "0"
 pred_cloth_rot_multiplier "0"
-sc_instanced_mesh_lod_bias "15"
-sc_instanced_mesh_lod_bias_shadow "10"
-sc_instanced_mesh_size_cull_bias "10"
 sc_instanced_mesh_size_cull_bias_shadow "10"
 sc_aggregate_bvh_threshold "16"
 sc_layer_batch_threshold "16"
 citadel_damage_offscreen_indicator_disabled "0"
-citadel_portrait_world_renderer_off "1"
+citadel_portrait_world_renderer_off "1" // что бы включить портреты в начале матча и в выборе героя вместо 1 на 0 поставьте
 citadel_damage_text_lifetime "1.5"
 citadel_damage_text_lifetime_new "0.75"
 citadel_damage_text_lifetime_accumulated_new "2"
@@ -1145,122 +1167,122 @@ r_fallback_texture_lod_scale "4"
 
 
 
+        "rate"
+        {
+            "min"       "98304"
+            "default"   "786432"
+            "max"       "1000000"
+        }
+        "sv_minrate"    "98304"
+        "sv_maxunlag"   "0.500"
+        "sv_maxunlag_player" "0.200"
+        "sv_lagcomp_filterbyviewangle" "false"
 
-		"rate"
-		{
-			"min"		"98304"
-			"default"	"786432"
-			"max"		"1000000"
-		}
-		"sv_minrate"	"98304"
-		"sv_maxunlag"	"0.500"
-		"sv_maxunlag_player" "0.200"
-		"sv_lagcomp_filterbyviewangle" "false"
+        // Spew warning when adding/removing classes to/from the top of the hierarchy
+        "panorama_classes_perf_warning_threshold_ms" "0.75"
 
-		// Spew warning when adding/removing classes to/from the top of the hierarchy
-		"panorama_classes_perf_warning_threshold_ms" "0.75"
+        // Panorama - enable minidumps on JS exceptions
+        "panorama_js_minidumps" "1"
+        // Enable the render target cache optimization.
+        "panorama_disable_render_target_cache" "0"
 
-		// Panorama - enable minidumps on JS exceptions
-		"panorama_js_minidumps" "1"
-		// Enable the render target cache optimization.
-		"panorama_disable_render_target_cache" "0"
+        // Enable the composition layer optimization
+        "panorama_skip_composition_layer_content_paint" "1"
 
-		// Enable the composition layer optimization
-		"panorama_skip_composition_layer_content_paint" "1"
+        // too expensive (500MB+) to load this
+        "snd_steamaudio_load_reverb_data" "0"
+        "snd_steamaudio_load_pathing_data" "0"
 
-		// too expensive (500MB+) to load this
-		"snd_steamaudio_load_reverb_data" "0"
-		"snd_steamaudio_load_pathing_data" "0"
+        // Steam Audio project specific convars
+        "snd_steamaudio_enable_custom_hrtf"     "0"
+        "snd_steamaudio_active_hrtf"            "0"
+        "snd_steamaudio_reverb_update_rate"     "10.0"
+        "snd_steamaudio_ir_duration"            "1.0"
+        "snd_steamaudio_enable_pathing"         "0"
+        "snd_steamaudio_invalid_path_length"    "0.0"
+        "cl_disconnect_soundevent"              "citadel.convar.stop_all_game_layer_soundevents"
+        "snd_event_browser_default_stack"       "citadel_default_3d"
+        
+        // voip
+        "voice_in_process"                      "1"
 
-		// Steam Audio project specific convars
-		"snd_steamaudio_enable_custom_hrtf"		"0"
-		"snd_steamaudio_active_hrtf"			"0"
-		"snd_steamaudio_reverb_update_rate"		"10.0"
-		"snd_steamaudio_ir_duration"			"1.0"
-		"snd_steamaudio_enable_pathing"			"0"
-		"snd_steamaudio_invalid_path_length"	"0.0"
-		"cl_disconnect_soundevent"				"citadel.convar.stop_all_game_layer_soundevents"
-		"snd_event_browser_default_stack"		"citadel_default_3d"
-		
-		// voip
-		"voice_in_process"			            "1"
+        // Sound debugging
+        "snd_report_audio_nan" "1"
 
-		// Sound debugging
-		"snd_report_audio_nan" "1"
+        // Audio system settings
+        "snd_sos_max_event_base_depth" "10"
+        "sos_use_guid_filter" "1"
 
-		// Audio system settings
-		"snd_sos_max_event_base_depth" "10"
-		"sos_use_guid_filter" "1"
+        "voice_always_sample_mic"               
+        {
+            "version"   "2"
+            "default"   "0"
+        }
 
-		"voice_always_sample_mic"               
-		{
-			"version"	"2"
-			"default"	"0"
-		}
+        "reset_voice_on_input_stallout"         "0"
+        "voice_input_stallout"                  "0.5"
+        "cl_usesocketsforloopback" "1"
+        "cl_poll_network_early" "0"
 
-		"reset_voice_on_input_stallout"         "0"
-		"voice_input_stallout"                  "0.5"
-		"cl_usesocketsforloopback" "1"
-		"cl_poll_network_early" "0"
+        // Perf/Parallelism
+        "iv_parallel_restore" "1"
 
-		// Perf/Parallelism
-		"iv_parallel_restore" "1"
+        // For perf reasons, since we don't use source-based DSP:
+        "disable_source_soundscape_trace"       "1"
+        
+        // Networking - Induced latency (pred offset)
+        "cl_tickpacket_recvmargin_desired" "5"                  // 5 ms base, min. floor for protecting against thrashing the queue
+        "cl_tickpacket_desired_queuelength" "0"                 // 0 = attempt to always reach the queue's min floor
+        "cl_async_usercmd_send_disabled_recvmargin_min" "0.5"   // Additional frame since we do not use the async usercmd send (potentially unneccessary)
+        "cl_clock_buffer_ticks" "1"
+        "cl_interp_ratio" "0"
+        "cl_async_usercmd_send" "true"
 
-		// For perf reasons, since we don't use source-based DSP:
-		"disable_source_soundscape_trace"       "1"
-		
-		// Networking - Induced latency (pred offset)
-		"cl_tickpacket_recvmargin_desired" "5" 					// 5 ms base, min. floor for protecting against thrashing the queue
-		"cl_tickpacket_desired_queuelength" "0"					// 0 = attempt to always reach the queue's min floor
-		"cl_async_usercmd_send_disabled_recvmargin_min" "0.5"	// Additional frame since we do not use the async usercmd send (potentially unneccessary)
-		"cl_clock_buffer_ticks"	"1"
-		"cl_async_usercmd_send" "false"
+        "fps_max"       "400"
+        "fps_max_ui"    "120"
 
-		"fps_max"		"400"
-		"fps_max_ui"	"120"
+        "in_button_double_press_window" "0.3"
 
-		"in_button_double_press_window" "0.3"
+        // Convars that control spatialization of UI audio.
+        "snd_ui_positional"                             "false"
+        "snd_ui_spatialization_spread"                  "2.4"
+        
+        // sound volume rate change limiting
+        "snd_envelope_rate"                             "100.0"
+        "snd_soundmixer_update_maximum_frame_rate"      "0"
 
-		// Convars that control spatialization of UI audio.
-		"snd_ui_positional"								"1"
-		"snd_ui_spatialization_spread"					"2.4"
-		
-		// sound volume rate change limiting
-		"snd_envelope_rate"								"100.0"
-		"snd_soundmixer_update_maximum_frame_rate" 		"0"
+        //don't let people mess with speaker config settings.
+        "speaker_config"
+        {
+            "min"       "0"
+            "default"   "0"
+            "max"       "2"
+        }
 
-		//don't let people mess with speaker config settings.
-		"speaker_config"
-		{
-			"min"		"0"
-			"default"	"0"
-			"max"		"2"
-		}
+        "cq_buffer_bloat_msecs_max" "120"
 
-		"cq_buffer_bloat_msecs_max" "120"
+        "snd_soundmixer"                        "Default_Mix"
+        "cloth_filter_transform_stateless" "0"
 
-		"snd_soundmixer"						"Default_Mix"
-		"cloth_filter_transform_stateless" "0"
+        "cl_joystick_enabled" "0"
+        "panorama_joystick_enabled" "0"
 
-		"cl_joystick_enabled" "0"
-		"panorama_joystick_enabled" "0"
+        "snd_event_browser_focus_events" "true"
 
-		"snd_event_browser_focus_events" "true"
+        "cl_max_particle_pvs_aabb_edge_length" "100"
+        
+        // Allow aggregation of particles (for perf)
+        "cl_aggregate_particles" "false"
+        
+        "citadel_enable_vdata_sound_preload" "true"
+    }
 
-		"cl_max_particle_pvs_aabb_edge_length" "100"
-		
-		// Allow aggregation of particles (for perf)
-		"cl_aggregate_particles" "true"
-		
-		"citadel_enable_vdata_sound_preload" "true"
-	}
+    Memory
+    {
+        "EstimatedMaxCPUMemUsageMB" "1"
+        "EstimatedMinGPUMemUsageMB" "1"
 
-	Memory
-	{
-		"EstimatedMaxCPUMemUsageMB"	"1"
-		"EstimatedMinGPUMemUsageMB"	"1"
-
-		"ShowInsufficientPageFileMessageBox" "1"
-		"ShowLowAvailableVirtualMemoryMessageBox" "1"
-	}
+        "ShowInsufficientPageFileMessageBox" "1"
+        "ShowLowAvailableVirtualMemoryMessageBox" "1"
+    }
 }
